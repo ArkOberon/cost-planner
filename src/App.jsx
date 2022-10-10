@@ -56,8 +56,7 @@ function App() {
               onClick={handleNewCost}
             />
           </div>
-        </>
-        
+        </>        
       )} 
 
       {modal && 
