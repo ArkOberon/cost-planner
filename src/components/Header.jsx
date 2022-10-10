@@ -5,7 +5,8 @@ const Header = ( {
   budget, 
   setBudget, 
   isValidBudget, 
-  setIsValidBudget 
+  setIsValidBudget,
+  costs
 }) => {
   return (
     <header>
@@ -14,6 +15,7 @@ const Header = ( {
       {isValidBudget ? 
       
         <ControlPanel 
+          costs={costs}
           budget={budget}
         />
       

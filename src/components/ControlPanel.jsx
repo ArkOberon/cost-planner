@@ -1,4 +1,10 @@
-const ControlPanel = ({ budget }) => {
+import { useEffect } from "react"
+
+const ControlPanel = ({ budget, costs }) => {
+
+  useEffect(() => {
+    console.log("gastos")
+  },[costs])
 
   const formatQuantity = (quantity) => {
     return quantity.toLocaleString('en-US', {
