@@ -1,0 +1,47 @@
+import React from 'react'
+import { dateFormat } from '../helpers'
+
+import IconAhorro from '../img/icono_ahorro.svg'
+import IconCasa from '../img/icono_casa.svg'
+import IconComida from '../img/icono_comida.svg'
+import IconGastos from '../img/icono_gastos.svg'
+import IconOcio from '../img/icono_ocio.svg'
+import IconSalud from '../img/icono_salud.svg'
+import IconSuscripciones from '../img/icono_suscripciones.svg'
+
+const iconList =  {
+  savings: IconAhorro,
+  food : IconComida,
+  house : IconCasa,
+  miscellaneous : IconGastos,
+  entertainment : IconOcio,    
+  health : IconSalud,
+  subscription : IconSuscripciones
+}
+
+const Cost = ({costs}) => {
+
+  const { category, name, quantity, id, date } = costs
+
+  return (
+    <div className='gasto sombra'>
+      <div className='contenido-gasto'>
+        <img 
+          src={iconList[category]}
+          alt="cost icon"
+        />
+        <div className='descripcion-gasto'>
+          <p className='categoria'>{category}</p>
+          <p className='nombre-gasto'>{name}</p> 
+          <p className='fecha-gasto'>
+            Added on:{' '}
+            <span>{dateFormat(date)}</span>
+          </p>                
+        </div>        
+      </div>
+      <p className='cantidad-gasto'>${quantity}</p>
+    </div>
+  )
+}
+
+export default Cost
