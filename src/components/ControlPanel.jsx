@@ -1,9 +1,20 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 const ControlPanel = ({ budget, costs }) => {
 
+  const [available, setAvailable] = useState(0)
+  const [spent, setSpent] = useState(0)
+
   useEffect(() => {
-    console.log("gastos")
+    const totalCosts = costs.reduce( (total, cost) => cost.quantity + total, 0)
+    
+    const totalAvailable = budget - totalCosts
+
+    console.log(totalAvailable)
+
+    setSpent(totalCosts)
+    setAvailable(totalAvailable)
+  
   },[costs])
 
   const formatQuantity = (quantity) => {
@@ -24,11 +35,11 @@ const ControlPanel = ({ budget, costs }) => {
         </p>
 
         <p>
-          <span>Disponible:</span> {formatQuantity(0)}
+          <span>Disponible:</span> {formatQuantity(available)}
         </p>
 
         <p>
-          <span>Gastado:</span> {formatQuantity(0)}
+          <span>Gastado:</span> {formatQuantity(spent)}
         </p>
 
       </div>
