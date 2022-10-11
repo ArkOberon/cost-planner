@@ -32,20 +32,20 @@ const Cost = ({costs, setEditCosts, deleteCost}) => {
 
   const leadingActions = () => (
     <LeadingActions>
-        <SwipeAction onClick={() => setEditCosts(costs)}>
-          Edit
-        </SwipeAction>
+      <SwipeAction onClick={() => setEditCosts(costs)}>
+        Edit
+      </SwipeAction>
     </LeadingActions>
   )
 
   const trailingActions = () => (
     <TrailingActions>
-        <SwipeAction 
-          onClick={() => deleteCost(id)}
-          destructive={true}
-        >
-          Delete 
-        </SwipeAction>
+      <SwipeAction 
+        onClick={() => deleteCost(id)}
+        destructive={true}
+      >
+        Delete 
+      </SwipeAction>
     </TrailingActions>
   )
 
